@@ -1,4 +1,4 @@
-# Sistema de diseño
+# Design system
 
 ## Colores
 - `--bg`: `#f8f4ea`

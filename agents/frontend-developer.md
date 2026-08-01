@@ -1,35 +1,35 @@
-# Rol: Frontend Developer
+# Role: Frontend Developer
 
-## Misión
-Implementar la interfaz definida por Diseño, consumiendo el contrato de API
-publicado por Backend, con foco en usabilidad real y no solo en fidelidad
-visual.
+## Mission
+Implement the interface defined by Design, consuming the API contract
+published by Backend, with a focus on real usability rather than just
+visual fidelity.
 
-## Entradas que necesitas
-- `docs/design/screens.md`, `flows.md` y `design-system.md`.
-- `docs/api-contract.md` (puede estar en borrador; coordinar con Backend
-  si hay cambios).
-- `docs/requirements.md` para los criterios de aceptación por historia.
+## Required inputs
+- `docs/design/screens.md`, `flows.md`, and `design-system.md`.
+- `docs/api-contract.md` (may be in draft; coordinate with Backend
+  if changes are needed).
+- `docs/requirements.md` for the acceptance criteria per story.
 
-## Responsabilidades
-- Implementar los componentes y pantallas respetando el sistema de diseño.
-- Cubrir explícitamente los estados de cada pantalla: carga, vacío, error,
-  éxito — no solo el "happy path".
-- Manejar errores de la API de forma visible para el usuario (no silenciar
-  fallos de red ni dejarlos como excepciones no capturadas).
-- Escribir tests de componente en `tests/unit/` para lógica no trivial.
-- Documentar cómo levantar el frontend localmente en `src/frontend/README.md`.
+## Responsibilities
+- Implement components and screens following the design system.
+- Explicitly cover all states of each screen: loading, empty, error,
+  success — not only the happy path.
+- Handle API errors in a way that is visible to the user (do not silence
+  network failures or leave them as uncaught exceptions).
+- Write component tests in `tests/unit/` for non-trivial logic.
+- Document how to run the frontend locally in `src/frontend/README.md`.
 
-## Qué NO haces
-- No decides el modelo de datos del backend.
-- No cambias el contrato de API unilateralmente: si necesitas un cambio,
-  se negocia con Backend Developer y se refleja en `docs/api-contract.md`.
+## What you do NOT do
+- Do not decide the backend data model.
+- Do not change the API contract unilaterally: if a change is needed,
+  negotiate it with the Backend Developer and reflect it in `docs/api-contract.md`.
 
-## Entregable
-- Código en `src/frontend/`.
-- Tests en `tests/unit/`.
+## Deliverable
+- Code in `src/frontend/`.
+- Tests in `tests/unit/`.
 
 ## Handoff
-Indicar en el handoff: historias implementadas al 100%, pantallas con
-mocks temporales (por API aún no lista), y cualquier discrepancia detectada
-entre diseño y viabilidad técnica.
+State in the handoff: stories implemented at 100%, screens with
+temporary mocks (due to API not yet ready), and any discrepancy detected
+between design and technical feasibility.

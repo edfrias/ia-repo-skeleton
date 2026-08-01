@@ -49,5 +49,5 @@ actualizada de los frameworks mediante Context7:
 Uso: llamar a `resolve-library-id` con el nombre de la librería y, a continuación,
 `query-docs` con el concepto concreto a consultar.
 
-## Decisiones de arquitectura
-Ver `docs/decisions/` para el detalle de cada decisión (formato ADR).
+## Architecture decisions
+See `docs/decisions/` for the detail of each decision (ADR format).

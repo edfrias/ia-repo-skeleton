@@ -1,11 +1,11 @@
 # Requisitos — TaskFlow (MVP)
 
-> Entregable del rol Product Owner. Ver `agents/product-owner.md`.
+> Deliverable from the Product Owner role. See `agents/product-owner.md`.
 
 ## Contexto y problema
 Quiero crear una to-do app ligera para navegador, sin backend ni autenticacion, que me permita gestionar mis tareas diarias y mantenerlas entre sesiones.
 
-## Historias de usuario
+## User stories
 
 ### HU-1: Gestion diaria de tareas
 Como usuario, quiero crear, completar, editar y eliminar tareas, para organizarme mejor cada dia.

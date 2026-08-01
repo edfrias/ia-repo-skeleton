@@ -1,21 +1,21 @@
-# 0001 — Registrar las decisiones de arquitectura como ADR
+# 0001 — Record architecture decisions as ADRs
 
-## Estado
-Aceptada
+## Status
+Accepted
 
-## Contexto
-Necesitamos dejar constancia de por qué se tomó cada decisión técnica
-relevante, para que futuros agentes/desarrolladores no repitan discusiones
-ya cerradas ni deshagan decisiones sin saber el motivo original.
+## Context
+We need to keep track of why each relevant technical decision was made,
+so that future agents/developers do not repeat already-closed discussions
+or undo decisions without knowing the original rationale.
 
-## Decisión
-Cada decisión de arquitectura significativa se documenta en
-`docs/decisions/NNNN-titulo-en-kebab-case.md`, numerada de forma
-correlativa, siguiendo esta misma plantilla (Estado / Contexto / Decisión /
-Consecuencias).
+## Decision
+Each significant architecture decision is documented in
+`docs/decisions/NNNN-title-in-kebab-case.md`, numbered sequentially,
+following this same template (Status / Context / Decision /
+Consequences).
 
-## Consecuencias
-- Cualquier rol (especialmente Backend y Frontend) debe consultar esta
-  carpeta antes de proponer un cambio que contradiga una decisión previa.
-- Si se revierte una decisión, se crea un ADR nuevo que referencia al
-  anterior y lo marca como "Reemplazada por NNNN", en vez de borrarlo.
+## Consequences
+- Any role (especially Backend and Frontend) must consult this
+  folder before proposing a change that contradicts a previous decision.
+- If a decision is reversed, a new ADR is created referencing the
+  previous one and marking it as "Superseded by NNNN", rather than deleting it.

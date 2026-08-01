@@ -1,6 +1,6 @@
-# Pantallas y componentes
+# Screens and components
 
-> Entregable del rol Designer.
+> Deliverable from the Designer role.
 
 ## Pantalla: Principal (TaskFlow)
 - **Estado vacio:** Mensaje "No hay tareas para este filtro" y formulario de alta visible.

@@ -1,6 +1,6 @@
-# Flujos de usuario
+# User flows
 
-> Entregable del rol Designer. Un flujo por historia de usuario relevante.
+> Deliverable from the Designer role. One flow per relevant user story.
 
 ## Flujo: HU-1 - Gestion diaria de tareas
 

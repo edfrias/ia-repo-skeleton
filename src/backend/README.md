@@ -1,5 +1,5 @@
 # Backend
 
-> Rellenar cuando el rol Backend Developer implemente algo real:
-> requisitos, cómo instalar dependencias, cómo levantar el servicio en
-> local, variables de entorno necesarias.
+> Fill in when the Backend Developer role implements something real:
+> prerequisites, how to install dependencies, how to run the service
+> locally, required environment variables.

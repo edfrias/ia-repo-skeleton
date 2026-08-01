@@ -1,6 +1,6 @@
 # Reporte QA - 2026-08-01 (Iteracion 1 MVP)
 
-> Entregable del rol QA. Ver `agents/qa.md`.
+> Deliverable from the QA role. See `agents/qa.md`.
 
 ## Resumen
 Aprobado

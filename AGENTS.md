@@ -1,104 +1,99 @@
-# AGENTS.md — Orquestación de subagentes
+# AGENTS.md — Subagent Orchestration
 
-Este fichero es el punto de entrada para cualquier agente de IA (Claude Code,
-Cursor, Codex CLI, etc.) que trabaje en este repositorio. Define el **modelo
-de orquestación**, los **roles disponibles** y el **protocolo de traspaso**
-entre ellos. Este es un esqueleto vacío: sustituye los placeholders `[...]`
-cuando arranques un proyecto real.
+This file is the entry point for any AI agent (Claude Code,
+Cursor, Codex CLI, etc.) working in this repository. It defines the **orchestration
+model**, the **available roles**, and the **handoff protocol**
+between them. This is an empty skeleton: replace the `[...]` placeholders
+when starting a real project.
 
-## 1. Filosofía
+## 1. Philosophy
 
-Un agente orquestador (el que lee este fichero) descompone cada tarea en
-sub-tareas y las delega a subagentes especializados por rol. Cada subagente:
+An orchestrator agent (the one reading this file) breaks each task into
+sub-tasks and delegates them to role-specialized subagents. Each subagent:
 
-- Tiene **una sola responsabilidad** (single responsibility a nivel de rol).
-- Lee su propio fichero de rol en `agents/<rol>.md` antes de empezar.
-- Produce un **entregable concreto** en la ruta indicada en su fichero.
-- Deja un **resumen de traspaso** (handoff) para el siguiente rol, siguiendo
-  la plantilla de la sección 4.
-- No asume trabajo de otro rol: si falta un entregable previo, lo pide en
-  vez de inventarlo.
+- Has **a single responsibility** (single responsibility at the role level).
+- Reads its own role file in `agents/<role>.md` before starting.
+- Produces a **concrete deliverable** at the path specified in its file.
+- Leaves a **handoff summary** for the next role, following
+  the template in section 4.
+- Does not assume another role's work: if a previous deliverable is missing, it asks
+  instead of making it up.
 
-## 2. Roles disponibles
+## 2. Available roles
 
-| Rol | Fichero | Entrada que necesita | Entregable principal |
+| Role | File | Required input | Main deliverable |
 |---|---|---|---|
-| Product Owner | `agents/product-owner.md` | Idea/objetivo de negocio | `docs/requirements.md` |
-| Diseñador (UX/UI) | `agents/designer.md` | `docs/requirements.md` | `docs/design/` (flujos, wireframes, sistema de diseño) |
-| Backend Developer | `agents/backend-developer.md` | `docs/requirements.md` + diseño técnico | Código en `src/backend/` |
-| Frontend Developer | `agents/frontend-developer.md` | `docs/design/` + contrato de API | Código en `src/frontend/` |
-| QA | `agents/qa.md` | Entregables de backend/frontend | `tests/` + `docs/qa-report.md` |
+| Product Owner | `agents/product-owner.md` | Business idea/goal | `docs/requirements.md` |
+| Designer (UX/UI) | `agents/designer.md` | `docs/requirements.md` | `docs/design/` (flows, wireframes, design system) |
+| Backend Developer | `agents/backend-developer.md` | `docs/requirements.md` + technical design | Code in `src/backend/` |
+| Frontend Developer | `agents/frontend-developer.md` | `docs/design/` + API contract | Code in `src/frontend/` |
+| QA | `agents/qa.md` | Backend/frontend deliverables | `tests/` + `docs/qa-report.md` |
 
-Añade más roles (DevOps, Data, Seguridad...) creando `agents/<rol>.md` y una
-fila nueva en esta tabla.
+Add more roles (DevOps, Data, Security...) by creating `agents/<role>.md` and a
+new row in this table.
 
-## 3. Flujo de orquestación por defecto
+## 3. Default orchestration flow
 
 ```
 Product Owner ──▶ Designer ──▶ ┬─▶ Backend Developer ─┐
                                 └─▶ Frontend Developer ─┤
                                                          ▼
-                                                        QA ──▶ (loop si hay bugs)
+                                                        QA ──▶ (loop if bugs found)
 ```
 
-1. El orquestador recibe la petición del usuario.
-2. Invoca a **Product Owner** para convertirla en requisitos verificables.
-3. Invoca a **Designer** con esos requisitos.
-4. Lanza **Backend** y **Frontend** en paralelo, ambos leyendo diseño +
-   requisitos. Backend publica el contrato de API antes de que Frontend lo
-   necesite (ver `docs/api-contract.md`).
-5. Invoca a **QA** contra lo entregado por ambos.
-6. Si QA reporta bugs bloqueantes, el orquestador reabre el rol responsable
-   con el reporte de QA como entrada. Repetir hasta que QA apruebe.
-7. El orquestador resume el estado final al usuario.
+1. The orchestrator receives the user's request.
+2. Invokes **Product Owner** to convert it into verifiable requirements.
+3. Invokes **Designer** with those requirements.
+4. Launches **Backend** and **Frontend** in parallel, both reading design +
+   requirements. Backend publishes the API contract before Frontend needs it
+   (see `docs/api-contract.md`).
+5. Invokes **QA** against both deliverables.
+6. If QA reports blocking bugs, the orchestrator reopens the responsible role
+   with the QA report as input. Repeat until QA approves.
+7. The orchestrator summarises the final status to the user.
 
-Este flujo es el por defecto para "feature completa". Para tareas pequeñas
-(un fix, un endpoint suelto) el orquestador puede saltarse roles que no
-aporten valor, dejándolo explícito en su respuesta.
+This flow is the default for a "complete feature". For small tasks
+(a fix, a single endpoint) the orchestrator may skip roles that add no
+value, stating this explicitly in its response.
 
-## 4. Plantilla de traspaso (handoff)
+## 4. Handoff template
 
-Cada subagente, al terminar, debe dejar esto en su fichero de salida o en el
-resumen que devuelve al orquestador:
+Each subagent, upon completion, must leave this in its output file or in the
+summary it returns to the orchestrator:
 
 ```markdown
-## Handoff — [Rol]
-- **Estado**: completo / bloqueado / parcial
-- **Entregable(s)**: [rutas de fichero]
-- **Decisiones clave tomadas**: [lista breve]
-- **Pendiente / fuera de alcance**: [lista breve]
-- **Para el siguiente rol**: [qué necesita saber o revisar]
+## Handoff — [Role]
+- **Status**: complete / blocked / partial
+- **Deliverable(s)**: [file paths]
+- **Key decisions made**: [brief list]
+- **Pending / out of scope**: [brief list]
+- **For the next role**: [what it needs to know or review]
 ```
 
-## 5. Documentación de frameworks vía Context7
+## 5. Framework documentation via Context7
 
-Antes de escribir código que involucre **Astro**, **Vue 3** o cualquier otra
-librería del stack, el subagente correspondiente **debe** consultar la
-documentación actualizada usando el servidor MCP de Context7 (configurado en
-`.vscode/mcp.json`):
+Before writing code involving Astro, Vue 3 or any other stack library, the corresponding subagent must consult the up-to-date documentation using the Context7 MCP server (configured in `.vscode/mcp.json`):
 
-1. Llamar a `resolve-library-id` con el nombre de la librería.
-2. Seleccionar el ID con mayor puntuación y nombre más cercano.
-3. Llamar a `query-docs` con ese ID y el concepto concreto a buscar.
-4. Usar la documentación obtenida para generar código correcto y actualizado.
+1. Call `resolve-library-id` with the library name.
+2. Select the ID with the highest score and the most similar name.
+3. Call `query-docs` with that ID and the specific concept to search for.
+4. Use the obtained documentation to generate correct and up-to-date code.
 
-IDs de referencia rápida: `/withastro/astro` · `/vuejs/vue`
+Quick reference IDs: `/withastro/astro` · `/vuejs/vue`
 
-## 6. Convenciones del repositorio
+## 6. Repository conventions
 
-- **Idioma de la documentación**: castellano.
-- **Gestión de decisiones de arquitectura**: usar `docs/decisions/` con el
-  formato ADR (Architecture Decision Record), un fichero por decisión.
-- **Definición de "hecho" (Definition of Done)**: código + tests + docs
-  actualizados + revisado por QA.
+- **Documentation language**: English.
+- **Architecture decision management**: use `docs/decisions/` with ADR (Architecture Decision Record) format, one file per decision.
+- **Definition of Done**: code + tests + updated docs + reviewed by QA.
 - **Commits**: Conventional Commits (`feat:`, `fix:`, `docs:`, `test:`...).
-- **Ramas**: `main` protegida; trabajo en `feature/<rol>-<descripcion-corta>`.
+- **Branches**: `main` protected; work on `feature/<role>-<short-description>`.
 
-## 6. Cómo arrancar un proyecto nuevo con este esqueleto
+## 6. How to start a new project with this skeleton
 
-1. Renombra/edita este `README.md` con la descripción real del proyecto.
-2. Rellena `docs/requirements.md` (puede hacerlo el rol Product Owner).
-3. Decide el stack en `docs/architecture.md`.
-4. Borra las carpetas de `src/` que no apliquen (p.ej. si es solo backend).
-5. Empieza a invocar al orquestador con una petición de alto nivel; él se
-   encarga de repartir el trabajo entre roles siguiendo este fichero.
+1. Rename/edit this `README.md` with the real project description.
+2. Fill in `docs/requirements.md` (the Product Owner role can do this).
+3. Decide the stack in `docs/architecture.md`.
+4. Delete the `src/` folders that don't apply (e.g. if backend-only, remove `src/frontend/`).
+5. Start invoking the orchestrator with a high-level request; it will
+   distribute the work among roles following this file.

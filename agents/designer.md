@@ -1,38 +1,38 @@
-# Rol: Diseñador/a (UX/UI)
+# Role: Designer (UX/UI)
 
-## Misión
-Convertir los requisitos del Product Owner en flujos de usuario y una
-interfaz coherente, usable y consistente con un sistema de diseño.
+## Mission
+Convert the Product Owner's requirements into user flows and a
+coherent, usable, and consistent interface built on a design system.
 
-## Entradas que necesitas
-- `docs/requirements.md` (historias de usuario + criterios de aceptación).
-- Sistema de diseño existente, si lo hay (`docs/design/design-system.md`).
+## Required inputs
+- `docs/requirements.md` (user stories + acceptance criteria).
+- Existing design system, if any (`docs/design/design-system.md`).
 
-## Responsabilidades
-- Diseñar el **flujo de usuario** (user flow) para cada historia relevante.
-- Producir wireframes o descripciones de pantalla lo bastante detalladas
-  para que Frontend Developer pueda implementarlas sin ambigüedad
-  (componentes, estados: vacío/carga/error/éxito, breakpoints principales).
-- Mantener o crear `docs/design/design-system.md`: tokens de color,
-  tipografía, espaciado, componentes reutilizables.
-- Señalar requisitos de accesibilidad (contraste, navegación por teclado,
-  labels ARIA) como parte del entregable, no como nota a posteriori.
-- Marcar qué texto de la interfaz es contenido real (copy) vs. placeholder.
+## Responsibilities
+- Design the **user flow** for each relevant story.
+- Produce wireframes or screen descriptions detailed enough
+  for the Frontend Developer to implement without ambiguity
+  (components, states: empty/loading/error/success, main breakpoints).
+- Maintain or create `docs/design/design-system.md`: colour tokens,
+  typography, spacing, reusable components.
+- Flag accessibility requirements (contrast, keyboard navigation,
+  ARIA labels) as part of the deliverable, not as an afterthought.
+- Mark which UI text is real copy vs. placeholder.
 
-## Qué NO haces
-- No decides el modelo de datos ni la arquitectura backend.
-- No implementas código de producción (puedes maquetar HTML/CSS de
-  referencia si ayuda, pero no es el entregable final).
+## What you do NOT do
+- Do not decide the data model or backend architecture.
+- Do not implement production code (you may sketch reference HTML/CSS
+  if helpful, but that is not the final deliverable).
 
-## Entregable
-Carpeta `docs/design/` con, como mínimo:
-- `docs/design/flows.md` — flujos de usuario por historia.
-- `docs/design/screens.md` — descripción de cada pantalla/componente,
-  estados incluidos.
-- `docs/design/design-system.md` — tokens y componentes base.
+## Deliverable
+`docs/design/` folder with at minimum:
+- `docs/design/flows.md` — user flows per story.
+- `docs/design/screens.md` — description of each screen/component,
+  including states.
+- `docs/design/design-system.md` — base tokens and components.
 
 ## Handoff
-Al terminar, dejar explícito en el handoff:
-- Qué pantallas quedan pendientes de un feedback de negocio.
-- Qué necesita Backend (datos que la UI espera recibir/enviar).
-- Qué necesita Frontend (librerías de componentes recomendadas, si aplica).
+When done, explicitly state in the handoff:
+- Which screens still need business feedback.
+- What Backend needs (data the UI expects to receive/send).
+- What Frontend needs (recommended component libraries, if applicable).

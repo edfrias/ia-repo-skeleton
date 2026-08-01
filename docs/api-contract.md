@@ -1,28 +1,28 @@
-# Contrato de API
+# API Contract
 
-> Mantenido por Backend Developer, consumido por Frontend Developer.
-> Actualizar este fichero ANTES de implementar un endpoint, no después.
+> Maintained by Backend Developer, consumed by Frontend Developer.
+> Update this file BEFORE implementing an endpoint, not after.
 
-## [Nombre del endpoint]
+## [Endpoint name]
 
-`[MÉTODO] /ruta/del/endpoint`
+`[METHOD] /path/to/endpoint`
 
 **Request:**
 ```json
 {
-  "campo": "tipo/ejemplo"
+  "field": "type/example"
 }
 ```
 
 **Response 200:**
 ```json
 {
-  "campo": "tipo/ejemplo"
+  "field": "type/example"
 }
 ```
 
-**Errores posibles:**
-| Código | Motivo |
+**Possible errors:**
+| Code | Reason |
 |---|---|
 | 400 | [...] |
 | 404 | [...] |
