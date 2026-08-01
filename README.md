@@ -1,4 +1,4 @@
-# [Nombre del proyecto]
+# Skeleton con Harness Enginiering en mente
 
 > Esqueleto de repositorio para arrancar cualquier proyecto con "harness
 > engineering": un agente orquestador que reparte el trabajo entre
