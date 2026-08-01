@@ -1,16 +1,16 @@
-# Arquitectura — [Nombre del proyecto]
+# Architecture — [Project name]
 
-## Stack tecnológico
-- **Backend:** [lenguaje/framework]
-- **Frontend:** [lenguaje/framework]
-- **Base de datos:** [motor]
-- **Infraestructura:** [dónde se despliega]
+## Technology stack
+- **Backend:** [language/framework]
+- **Frontend:** [language/framework]
+- **Database:** [engine]
+- **Infrastructure:** [deployment target]
 
-## Diagrama de alto nivel
-[Describir o enlazar diagrama de componentes/servicios]
+## High-level diagram
+[Describe or link a component/service diagram]
 
-## Restricciones conocidas
+## Known constraints
 - [...]
 
-## Decisiones de arquitectura
-Ver `docs/decisions/` para el detalle de cada decisión (formato ADR).
+## Architecture decisions
+See `docs/decisions/` for the detail of each decision (ADR format).

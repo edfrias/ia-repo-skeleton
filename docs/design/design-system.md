@@ -1,13 +1,13 @@
-# Sistema de diseño
+# Design system
 
-## Colores
-- [token]: [valor]
+## Colours
+- [token]: [value]
 
-## Tipografía
-- [token]: [valor]
+## Typography
+- [token]: [value]
 
-## Espaciado
-- [token]: [valor]
+## Spacing
+- [token]: [value]
 
-## Componentes base
-- [componente]: [descripción/uso]
+## Base components
+- [component]: [description/usage]

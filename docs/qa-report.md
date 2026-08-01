@@ -1,16 +1,16 @@
-# Reporte QA — [fecha/iteración]
+# QA Report — [date/iteration]
 
-> Entregable del rol QA. Ver `agents/qa.md`.
+> Deliverable from the QA role. See `agents/qa.md`.
 
-## Resumen
-[Aprobado / Aprobado con reservas / Rechazado]
+## Summary
+[Approved / Approved with reservations / Rejected]
 
-## Cobertura de criterios de aceptación
-- [ ] HU-1: [resultado]
+## Acceptance criteria coverage
+- [ ] US-1: [result]
 
-## Bugs encontrados
-### [severidad] Título del bug
-- **Pasos para reproducir:** [...]
-- **Resultado esperado:** [...]
-- **Resultado real:** [...]
-- **Rol responsable:** Backend/Frontend
+## Bugs found
+### [severity] Bug title
+- **Steps to reproduce:** [...]
+- **Expected result:** [...]
+- **Actual result:** [...]
+- **Responsible role:** Backend/Frontend

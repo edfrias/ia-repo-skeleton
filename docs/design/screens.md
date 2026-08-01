@@ -1,10 +1,10 @@
-# Pantallas y componentes
+# Screens and components
 
-> Entregable del rol Designer.
+> Deliverable from the Designer role.
 
-## Pantalla: [nombre]
-- **Estado vacío:** [...]
-- **Estado de carga:** [...]
-- **Estado de error:** [...]
-- **Estado de éxito:** [...]
-- **Accesibilidad:** [contraste, foco, labels...]
+## Screen: [name]
+- **Empty state:** [...]
+- **Loading state:** [...]
+- **Error state:** [...]
+- **Success state:** [...]
+- **Accessibility:** [contrast, focus, labels...]

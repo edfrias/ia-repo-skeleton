@@ -1,7 +1,7 @@
-# Flujos de usuario
+# User flows
 
-> Entregable del rol Designer. Un flujo por historia de usuario relevante.
+> Deliverable from the Designer role. One flow per relevant user story.
 
-## Flujo: [HU-1 — título]
-1. [paso]
-2. [paso]
+## Flow: [US-1 — title]
+1. [step]
+2. [step]

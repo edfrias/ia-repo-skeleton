@@ -1,23 +1,23 @@
-# Requisitos — [Nombre de la feature/proyecto]
+# Requirements — [Feature/project name]
 
-> Entregable del rol Product Owner. Ver `agents/product-owner.md`.
+> Deliverable from the Product Owner role. See `agents/product-owner.md`.
 
-## Contexto y problema
-[Describe el problema de negocio o la necesidad del usuario]
+## Context and problem
+[Describe the business problem or user need]
 
-## Historias de usuario
+## User stories
 
-### HU-1: [título]
-Como [rol], quiero [acción], para [beneficio].
+### US-1: [title]
+As a [role], I want to [action], so that [benefit].
 
-**Criterios de aceptación:**
-- [ ] [criterio verificable 1]
-- [ ] [criterio verificable 2]
+**Acceptance criteria:**
+- [ ] [verifiable criterion 1]
+- [ ] [verifiable criterion 2]
 
-**Prioridad:** Must / Should / Could / Won't
+**Priority:** Must / Should / Could / Won't
 
-## Fuera de alcance
+## Out of scope
 - [...]
 
-## Supuestos
+## Assumptions
 - [...]
