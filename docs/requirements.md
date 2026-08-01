@@ -1,31 +1,31 @@
-# Requisitos — [Nombre de la feature/proyecto]
+# Requisitos — TaskFlow (MVP)
 
 > Entregable del rol Product Owner. Ver `agents/product-owner.md`.
 
 ## Contexto y problema
-Quiero crear una to-do app
+Quiero crear una to-do app ligera para navegador, sin backend ni autenticacion, que me permita gestionar mis tareas diarias y mantenerlas entre sesiones.
 
 ## Historias de usuario
 
-### HU-1: [título]
-Como usuario, quiero poder crear, eliminar y agrupar tareas en una to-do app, para poder organizarme mis tareas.
+### HU-1: Gestion diaria de tareas
+Como usuario, quiero crear, completar, editar y eliminar tareas, para organizarme mejor cada dia.
 
-**Criterios de aceptación:**
+**Criterios de aceptacion (MoSCoW + iteracion):**
 
-1. El usuario puede crear una nueva tarea introduciendo un texto y confirmando con Enter o un botón.
-2. El usuario puede marcar una tarea como completada; la tarea se muestra visualmente diferenciada (tachada o con icono).
-3. El usuario puede desmarcar una tarea completada para devolverla al estado pendiente.
-4. El usuario puede editar el texto de una tarea existente haciendo doble clic sobre ella.
-5. El usuario puede eliminar una tarea individualmente mediante un botón o acción explícita.
-6. El usuario puede agrupar tareas en listas o categorías con nombre personalizado.
-7. El usuario puede mover una tarea de una lista/categoría a otra.
-8. El usuario puede reordenar las tareas dentro de una lista arrastrando o mediante controles de orden.
-9. El sistema persiste las tareas entre sesiones (recarga de página o cierre y reapertura de la app).
-10. El usuario puede filtrar las tareas por estado: todas, pendientes y completadas.
-11. El usuario puede eliminar todas las tareas completadas de una lista con una sola acción.
-12. Se muestra el número de tareas pendientes en cada lista.
+1. [MUST - Iteracion 1] El usuario puede crear una nueva tarea introduciendo un texto y confirmando con Enter o boton.
+2. [MUST - Iteracion 1] El usuario puede marcar una tarea como completada; la tarea se muestra visualmente diferenciada.
+3. [MUST - Iteracion 1] El usuario puede desmarcar una tarea completada para devolverla al estado pendiente.
+4. [MUST - Iteracion 1] El usuario puede editar el texto de una tarea existente haciendo doble clic o usando un boton de edicion.
+5. [MUST - Iteracion 1] El usuario puede eliminar una tarea individualmente mediante un boton o accion explicita.
+6. [MUST - Iteracion 1] El sistema persiste las tareas entre sesiones (recarga o cierre/reapertura de la app).
+7. [MUST - Iteracion 1] El usuario puede filtrar tareas por estado: todas, pendientes y completadas.
+8. [SHOULD - Iteracion 1] Se muestra el numero de tareas pendientes.
+9. [SHOULD - Iteracion 1] El usuario puede eliminar todas las tareas completadas con una sola accion.
+10. [COULD - Iteracion 2] El usuario puede agrupar tareas en listas o categorias con nombre personalizado.
+11. [COULD - Iteracion 2] El usuario puede mover una tarea de una lista/categoria a otra.
+12. [COULD - Iteracion 2] El usuario puede reordenar tareas dentro de una lista arrastrando o mediante controles.
 
-**Prioridad:** Must / Should / Could / Won't
+**Prioridad de entrega actual:** completar criterios 1 a 9.
 
 ## Fuera de alcance
 - Autenticación y gestión de usuarios (registro, login, perfiles).
@@ -35,10 +35,11 @@ Como usuario, quiero poder crear, eliminar y agrupar tareas en una to-do app, pa
 - Adjuntos de archivos o imágenes en tareas.
 - Integración con calendarios externos (Google Calendar, Outlook, etc.).
 - Aplicación móvil nativa (iOS/Android).
+- Listas/categorias multiples en esta primera iteracion.
 
 ## Supuestos
 - El usuario accede a la app desde un navegador web moderno (Chrome, Firefox, Edge o Safari actuales).
 - La persistencia de datos se implementa con `localStorage`; no se requiere base de datos externa en esta fase.
 - Un único usuario por dispositivo/navegador; no hay contexto multiusuario.
 - El texto de una tarea no supera los 500 caracteres.
-- El número de listas por usuario y de tareas por lista es suficientemente pequeño para no requerir paginación.
+- El numero de tareas es suficientemente pequeno para no requerir paginacion.

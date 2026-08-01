@@ -1,0 +1,25 @@
+{
+  "name": "taskflow-mvp",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:e2e": "playwright test",
+    "test:e2e:ui": "playwright test --ui"
+  },
+  "dependencies": {
+    "vue": "^3.5.40"
+  },
+  "devDependencies": {
+    "@astrojs/vue": "^7.0.1",
+    "@playwright/test": "^1.55.0",
+    "astro": "^7.1.6",
+    "typescript": "^5.9.2",
+    "vitest": "^2.0.5"
+  }
+}
