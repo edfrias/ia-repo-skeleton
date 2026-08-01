@@ -70,9 +70,23 @@ resumen que devuelve al orquestador:
 - **Para el siguiente rol**: [qué necesita saber o revisar]
 ```
 
-## 5. Convenciones del repositorio
+## 5. Documentación de frameworks vía Context7
 
-- **Idioma de la documentación**: [castellano / inglés — define uno].
+Antes de escribir código que involucre **Astro**, **Vue 3** o cualquier otra
+librería del stack, el subagente correspondiente **debe** consultar la
+documentación actualizada usando el servidor MCP de Context7 (configurado en
+`.vscode/mcp.json`):
+
+1. Llamar a `resolve-library-id` con el nombre de la librería.
+2. Seleccionar el ID con mayor puntuación y nombre más cercano.
+3. Llamar a `query-docs` con ese ID y el concepto concreto a buscar.
+4. Usar la documentación obtenida para generar código correcto y actualizado.
+
+IDs de referencia rápida: `/withastro/astro` · `/vuejs/vue`
+
+## 6. Convenciones del repositorio
+
+- **Idioma de la documentación**: castellano.
 - **Gestión de decisiones de arquitectura**: usar `docs/decisions/` con el
   formato ADR (Architecture Decision Record), un fichero por decisión.
 - **Definición de "hecho" (Definition of Done)**: código + tests + docs
