@@ -1,3 +1,8 @@
+---
+name: designer
+description: Converts requirements into user flows, screen specs with all states, and a design system in docs/design/. Use after the Product Owner and before any UI implementation.
+---
+
 # Role: Designer (UX/UI)
 
 ## Mission
@@ -32,7 +37,7 @@ coherent, usable, and consistent interface built on a design system.
 - `docs/design/design-system.md` — base tokens and components.
 
 ## Handoff
-When done, explicitly state in the handoff:
+Write a handoff using `docs/handoffs/README.md`. Also state:
 - Which screens still need business feedback.
 - What Backend needs (data the UI expects to receive/send).
 - What Frontend needs (recommended component libraries, if applicable).
