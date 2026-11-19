@@ -5,10 +5,14 @@ on:
   push:
     branches: [main]
 
+permissions:
+  contents: read
+
 jobs:
-  placeholder:
+  check:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - name: Placeholder step
-        run: echo "Sustituye este job por lint/test/build reales del stack elegido"
+      - uses: actions/checkout@v6
+      # Add stack setup steps here (setup-node, setup-python, setup-dotnet...).
+      - name: Verify
+        run: sh scripts/check
