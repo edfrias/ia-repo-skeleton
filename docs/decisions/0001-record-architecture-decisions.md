@@ -11,7 +11,7 @@ or undo decisions without knowing the original rationale.
 ## Decision
 Each significant architecture decision is documented in
 `docs/decisions/NNNN-title-in-kebab-case.md`, numbered sequentially,
-following this same template (Status / Context / Decision /
+using `docs/decisions/0000-template.md` (Status / Context / Decision /
 Consequences).
 
 ## Consequences

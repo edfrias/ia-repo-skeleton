@@ -1,0 +1,88 @@
+#!/usr/bin/env sh
+# Single verification entry point for humans, agents and CI.
+#
+#   scripts/check
+#
+# Section 1 checks the skeleton itself (works for any stack).
+# Section 2 is where each project plugs in its lint / test / build commands.
+set -eu
+
+cd "$(dirname "$0")/.."
+
+failures=0
+fail() { echo "  ✗ $*"; failures=$((failures + 1)); }
+ok()   { echo "  ✓ $*"; }
+
+# ---------------------------------------------------------------------------
+# 1. Skeleton checks
+# ---------------------------------------------------------------------------
+echo "Skeleton checks"
+
+# 1a. Every role file has frontmatter with a matching name and a description.
+for f in agents/*.md; do
+  slug=$(basename "$f" .md)
+  if [ "$(head -n 1 "$f")" != "---" ]; then
+    fail "$f: missing frontmatter"
+    continue
+  fi
+  grep -q "^name: $slug\$" "$f" || fail "$f: frontmatter 'name' must be '$slug'"
+  grep -q "^description: ." "$f" || fail "$f: frontmatter 'description' is empty"
+done
+ok "role frontmatter inspected"
+
+# 1b. .claude/agents/ is in sync with agents/.
+if diff -r agents .claude/agents >/dev/null 2>&1; then
+  ok ".claude/agents/ in sync with agents/"
+else
+  fail ".claude/agents/ out of sync with agents/ — run scripts/sync-agents"
+fi
+
+# 1c. Relative links in Markdown files point to existing paths.
+broken=0
+for md in $(git ls-files --cached --others --exclude-standard '*.md' 2>/dev/null || find . -name '*.md' -not -path './.git/*'); do
+  dir=$(dirname "$md")
+  # Extract targets of [text](target), skipping URLs, anchors and mailto.
+  for target in $(grep -o '](\([^)]*\))' "$md" | sed 's/^](//; s/)$//; s/#.*$//'); do
+    case "$target" in
+      ''|http://*|https://*|mailto:*) continue ;;
+    esac
+    if [ ! -e "$dir/$target" ]; then
+      fail "$md: broken link -> $target"
+      broken=1
+    fi
+  done
+done
+[ "$broken" -eq 0 ] && ok "relative Markdown links resolve"
+
+# ---------------------------------------------------------------------------
+# 2. Project checks — replace the body of project_checks for your stack.
+#    Document the same commands in docs/architecture.md ("Verification").
+# ---------------------------------------------------------------------------
+PROJECT_CHECKS_CONFIGURED=false
+
+project_checks() {
+  # Examples (pick what applies, delete the rest):
+  #   npm ci && npm run lint && npm test && npm run build
+  #   uv run ruff check . && uv run pytest
+  #   dotnet build && dotnet test
+  :
+}
+
+echo "Project checks"
+has_code=$(find src -type f ! -name 'README.md' ! -name '.gitkeep' 2>/dev/null | head -n 1)
+
+if [ "$PROJECT_CHECKS_CONFIGURED" = true ]; then
+  if project_checks; then ok "project checks passed"; else fail "project checks failed"; fi
+elif [ -n "$has_code" ]; then
+  fail "src/ contains code but project checks are not configured — edit scripts/check"
+else
+  echo "  - no project code yet; project checks skipped"
+fi
+
+# ---------------------------------------------------------------------------
+echo
+if [ "$failures" -gt 0 ]; then
+  echo "scripts/check: $failures problem(s) found"
+  exit 1
+fi
+echo "scripts/check: all good"

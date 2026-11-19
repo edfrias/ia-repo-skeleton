@@ -1,0 +1,16 @@
+#!/usr/bin/env sh
+# Copies role definitions from agents/ (canonical, tool-agnostic) to
+# .claude/agents/ (where Claude Code discovers subagents).
+# Copies instead of symlinks so it also works on Windows checkouts.
+set -eu
+
+cd "$(dirname "$0")/.."
+
+mkdir -p .claude/agents
+rm -f .claude/agents/*.md
+
+for f in agents/*.md; do
+  cp "$f" ".claude/agents/$(basename "$f")"
+done
+
+echo "Synced $(ls agents/*.md | wc -l | tr -d ' ') role(s) to .claude/agents/"

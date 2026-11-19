@@ -1,20 +1,26 @@
-# Dependencias
+# Dependencies
 node_modules/
 vendor/
 .venv/
 __pycache__/
 
-# Builds
+# Build output
 dist/
 build/
 *.egg-info/
+coverage/
 
-# Entorno
+# Environment (commit only the example)
 .env
-.env.local
+.env.*
+!.env.example
 
-# Editor / SO
-.vscode/
+# AI agent tools — personal settings stay local
+.claude/settings.local.json
+
+# Editor / OS (shared editor recommendations are allowed)
+.vscode/*
+!.vscode/extensions.json
 .idea/
 .DS_Store
 Thumbs.db
